@@ -347,22 +347,46 @@ document.addEventListener('DOMContentLoaded', () => {
     // Estimator Variables
     let selectedServices = {};
 
-    const serviceDetails = {
-        graphic: { name: 'Graphic Design', basePrice: 1500, baseTimeline: 3, unit: 'Asset(s)' },
-        photo: { name: 'Photo Editing', basePrice: 1200, baseTimeline: 2, unit: 'Photo(s)' },
-        video: { name: 'Video Editing', basePrice: 2500, baseTimeline: 4, unit: 'Minute(s)' },
-        branding: { name: 'Branding Kit', basePrice: 3500, baseTimeline: 6, unit: 'Asset(s)' },
-        web: { name: 'Web Development', basePrice: 6000, baseTimeline: 10, unit: 'Page(s)' },
-        portrait: { name: 'Portrait Session', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        event: { name: 'Event / Wedding', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        commercial: { name: 'Commercial / Product', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        editing: { name: 'Photo Editing Only', basePrice: 0, baseTimeline: 0, unit: 'Photo(s)' },
-        other: { name: 'Photography Inquiry', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        multiple: { name: 'Multiple Services', basePrice: 0, baseTimeline: 0, unit: 'Item(s)' }
+    const getEstimatorServiceDetails = () => {
+        const contentServices = window.KLSTUDIOS_CONTENT?.pages?.estimator?.services;
+        if (!Array.isArray(contentServices) || contentServices.length === 0) {
+            return {
+                graphic: { name: 'Graphic Design', basePrice: 1500, baseTimeline: 3, unit: 'Asset(s)' },
+                photo: { name: 'Photo Editing', basePrice: 1200, baseTimeline: 2, unit: 'Photo(s)' },
+                video: { name: 'Video Editing', basePrice: 2500, baseTimeline: 4, unit: 'Minute(s)' },
+                branding: { name: 'Branding Kit', basePrice: 3500, baseTimeline: 6, unit: 'Asset(s)' },
+                web: { name: 'Web Development', basePrice: 6000, baseTimeline: 10, unit: 'Page(s)' },
+                portrait: { name: 'Portrait Session', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+                event: { name: 'Event / Wedding', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+                commercial: { name: 'Commercial / Product', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+                editing: { name: 'Photo Editing Only', basePrice: 0, baseTimeline: 0, unit: 'Photo(s)' },
+                other: { name: 'Photography Inquiry', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+                multiple: { name: 'Multiple Services', basePrice: 0, baseTimeline: 0, unit: 'Item(s)' }
+            };
+        }
+
+        return contentServices.reduce((acc, service) => {
+            acc[service.key] = {
+                name: service.name || 'Service',
+                basePrice: Number(service.basePrice) || 0,
+                baseTimeline: Number(service.baseTimeline) || 0,
+                unit: service.unit || 'Item(s)'
+            };
+            return acc;
+        }, {
+            portrait: { name: 'Portrait Session', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+            event: { name: 'Event / Wedding', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+            commercial: { name: 'Commercial / Product', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+            editing: { name: 'Photo Editing Only', basePrice: 0, baseTimeline: 0, unit: 'Photo(s)' },
+            other: { name: 'Photography Inquiry', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
+            multiple: { name: 'Multiple Services', basePrice: 0, baseTimeline: 0, unit: 'Item(s)' }
+        });
     };
 
+    const serviceDetails = getEstimatorServiceDetails();
+
     const formatCurrency = (amount) => {
-        return '฿' + amount.toLocaleString('en-US');
+        return '$' + amount.toLocaleString('en-US');
     };
 
     const updateSliderLabels = () => {
@@ -389,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const keys = Object.keys(selectedServices);
         
         if (keys.length === 0) {
-            costText.innerText = '฿0';
+            costText.innerText = '$0';
             timelineText.innerText = '-- Days';
             selectedList.innerHTML = '<p class="empty-list-msg">No services selected yet. Click on services to calculate cost!</p>';
             applyEstimateBtn.disabled = true;

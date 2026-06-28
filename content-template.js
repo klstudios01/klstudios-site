@@ -53,6 +53,19 @@ window.KLSTUDIOS_CONTENT = {
         { quote: 'From logo to website, everything felt cohesive and premium. The cost calculator made budgeting easy before we even booked a call.', author: 'Startup Founder', role: 'Web & Branding' }
       ]
     },
+    estimator: {
+      meta: {
+        title: 'Cost Calculator | KL STUDIOS',
+        description: 'Use the KL Studios instant project estimator to calculate ballpark pricing and timelines.'
+      },
+      services: [
+        { key: 'graphic', name: 'Graphic Design', basePrice: 200, baseTimeline: 3, unit: 'Asset(s)' },
+        { key: 'photo', name: 'Photo Editing', basePrice: 1200, baseTimeline: 2, unit: 'Photo(s)' },
+        { key: 'video', name: 'Video Editing', basePrice: 2500, baseTimeline: 4, unit: 'Minute(s)' },
+        { key: 'branding', name: 'Branding Kit', basePrice: 3500, baseTimeline: 6, unit: 'Asset(s)' },
+        { key: 'web', name: 'Web Development', basePrice: 6000, baseTimeline: 10, unit: 'Page(s)' }
+      ]
+    },
     photography: {
       meta: {
         title: 'Legacy Studios | Premium Photography',
