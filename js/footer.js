@@ -1,6 +1,5 @@
 (function () {
     const footerEl = document.getElementById('site-footer');
-    const siteContent = window.KLSTUDIOS_CONTENT?.site || {};
     if (!footerEl) return;
 
     const ctaBand = document.createElement('section');
@@ -25,10 +24,10 @@
             <div class="footer-row">
                 <div class="footer-col-brand">
                     <a href="index.html" class="logo-area footer-logo-link" aria-label="KL Studios — Home">
-                        <img src="${siteContent.logo || 'assets/logo.png'}" alt="${siteContent.logoAlt || 'KL Studios — Kalaphol and Legacy Studios'}" class="footer-logo" width="200" height="80">
+                        <img src="assets/logo.png" alt="KL Studios — Kalaphol and Legacy Studios" class="footer-logo" width="200" height="80">
                     </a>
                     <p class="footer-brand-desc">Premium creative designs, digital assets, and interactive websites built for elite modern brands.</p>
-                    <a href="mailto:${siteContent.email || 'klstudios.agency@gmail.com'}" class="footer-email"><i class="fa-solid fa-envelope"></i> ${siteContent.email || 'klstudios.agency@gmail.com'}</a>
+                    <a href="mailto:klstudios.agency@gmail.com" class="footer-email"><i class="fa-solid fa-envelope"></i> klstudios.agency@gmail.com</a>
                 </div>
                 <div class="footer-col-links">
                     <h4>Navigation</h4>
@@ -57,9 +56,9 @@
             <div class="footer-bottom">
                 <p class="copyright-text">&copy; ${new Date().getFullYear()} KL STUDIOS. All Rights Reserved.</p>
                 <div class="footer-socials">
-                    <a href="${siteContent.instagram || 'https://instagram.com/KLSTUDIOS.AGENCY'}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="${siteContent.facebook || 'https://facebook.com/KLSTUDIOS.AGENCY'}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="${siteContent.youtube || 'https://youtube.com/KLSTUDIOS.AGENCY'}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com/KLSTUDIOS.AGENCY" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/KLSTUDIOS.AGENCY" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com/KLSTUDIOS.AGENCY" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>

@@ -11,7 +11,6 @@
 
     const activePage = document.body.dataset.page || 'home';
     const headerEl = document.getElementById('site-header');
-    const siteContent = window.KLSTUDIOS_CONTENT?.site || {};
     if (!headerEl) return;
 
     const navItemsHtml = NAV_ITEMS.map(item => {
@@ -26,7 +25,7 @@
         <a href="#main-content" class="skip-link">Skip to main content</a>
         <div class="nav-container">
             <a href="index.html" class="logo-area" id="nav-logo-link" aria-label="KL Studios — Home">
-                <img src="${siteContent.logo || 'assets/logo.png'}" alt="${siteContent.logoAlt || 'KL Studios — Kalaphol and Legacy Studios'}" class="header-logo" id="header-logo" width="180" height="72">
+                <img src="assets/logo.png" alt="KL Studios — Kalaphol and Legacy Studios" class="header-logo" id="header-logo" width="180" height="72">
             </a>
             <nav class="nav-menu" id="nav-menu">
                 <ul>${navItemsHtml}</ul>

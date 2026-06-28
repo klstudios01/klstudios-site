@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-photography" data-page="photography">
+<body class="page-photography">
 
     <header class="main-header header-legacy" id="main-header">
         <div class="nav-container">
@@ -57,19 +57,19 @@
         <div class="hero-container">
             <div class="hero-visual-card hero-visual-legacy">
                 <div class="logo-glow-wrapper logo-glow-gold">
-                    <img src="assets/logo.png" alt="KL Studios — Design, Create, Inspire" class="hero-logo-img" data-content-image="hero.image" data-content-image-alt="hero.imageAlt">
+                    <img src="assets/logo.png" alt="KL Studios — Design, Create, Inspire" class="hero-logo-img">
                 </div>
             </div>
 
             <div class="hero-content">
-                <div class="badge badge-legacy" data-content="hero.badge">PREMIUM PHOTOGRAPHY</div>
-                <h1 class="hero-title hero-title-legacy" data-content-html="hero.title">CAPTURING MOMENTS THAT <span class="text-gold">LAST FOREVER</span></h1>
-                <p class="hero-subtitle" data-content="hero.subtitle">
+                <div class="badge badge-legacy">PREMIUM PHOTOGRAPHY</div>
+                <h1 class="hero-title hero-title-legacy">CAPTURING MOMENTS THAT <span class="text-gold">LAST FOREVER</span></h1>
+                <p class="hero-subtitle">
                     Portrait sessions, weddings, and commercial shoots crafted with cinematic lighting, thoughtful composition, and polished post-production.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary btn-gold" data-content-href="hero.ctaPrimaryHref"><span data-content="hero.ctaPrimaryLabel">Book a Photo Session</span> <i class="fa-solid fa-camera"></i></a>
-                    <a href="#gallery" class="btn btn-outline btn-outline-gold" data-content-href="hero.ctaSecondaryHref"><span data-content="hero.ctaSecondaryLabel">View Gallery</span></a>
+                    <a href="#contact" class="btn btn-primary btn-gold">Book a Photo Session <i class="fa-solid fa-camera"></i></a>
+                    <a href="#gallery" class="btn btn-outline btn-outline-gold">View Gallery</a>
                 </div>
             </div>
         </div>
@@ -85,9 +85,9 @@
         <div class="banner-gradient-overlay"></div>
         <div class="banner-content-wrapper">
             <div class="banner-text">
-                <h2 data-content="intro.title">Every Frame Tells Your Story</h2>
-                <p data-content="intro.text">Legacy Studios is the photography arm of the Kalaphol creative family. We blend editorial quality with warm, authentic storytelling for individuals, couples, and brands.</p>
-                <a href="services.html" class="btn btn-outline btn-outline-gold" data-content="intro.ctaLabel">Need Photo Editing? Visit KL Studios</a>
+                <h2>Every Frame Tells Your Story</h2>
+                <p>Legacy Studios is the photography arm of the Kalaphol creative family. We blend editorial quality with warm, authentic storytelling for individuals, couples, and brands.</p>
+                <a href="services.html" class="btn btn-outline btn-outline-gold">Need Photo Editing? Visit KL Studios</a>
             </div>
         </div>
     </section>
@@ -100,7 +100,43 @@
                 <div class="gradient-line gradient-line-gold"></div>
             </div>
 
-            <div class="services-grid services-grid-legacy" id="photography-services-grid"></div>
+            <div class="services-grid services-grid-legacy">
+                <div class="service-card" id="service-portraits">
+                    <div class="service-glow-effect bg-orange"></div>
+                    <div class="service-icon service-icon-gold"><i class="fa-solid fa-user"></i></div>
+                    <h3>Portrait Sessions</h3>
+                    <p>Headshots, lifestyle, and creative portraits with flattering light, natural posing direction, and refined retouching.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Studio or On-Location</li>
+                        <li><i class="fa-solid fa-check"></i> Wardrobe &amp; Styling Guidance</li>
+                        <li><i class="fa-solid fa-check"></i> High-Resolution Deliverables</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" id="service-events">
+                    <div class="service-glow-effect bg-purple"></div>
+                    <div class="service-icon service-icon-gold"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <h3>Events &amp; Weddings</h3>
+                    <p>Full-day coverage that documents every meaningful moment — from quiet details to the biggest celebrations.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Candid &amp; Formal Coverage</li>
+                        <li><i class="fa-solid fa-check"></i> Highlight Gallery Delivery</li>
+                        <li><i class="fa-solid fa-check"></i> Optional Second Shooter</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" id="service-commercial">
+                    <div class="service-glow-effect bg-cyan"></div>
+                    <div class="service-icon service-icon-gold"><i class="fa-solid fa-store"></i></div>
+                    <h3>Commercial &amp; Product</h3>
+                    <p>Brand campaigns, product catalogs, and social content built to elevate your business across every platform.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Art Direction Support</li>
+                        <li><i class="fa-solid fa-check"></i> E-Commerce Ready Files</li>
+                        <li><i class="fa-solid fa-check"></i> Consistent Brand Look</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -110,7 +146,7 @@
                 <span class="section-subtitle section-subtitle-gold">Portfolio</span>
                 <h2 class="section-title">Selected <span class="text-gold">Work</span></h2>
                 <div class="gradient-line gradient-line-gold"></div>
-                <p class="section-lead" data-content="gallery.lead">Gallery coming soon. Book a session to be among our next featured stories.</p>
+                <p class="section-lead">Gallery coming soon. Book a session to be among our next featured stories.</p>
             </div>
 
             <div class="gallery-placeholder">
@@ -118,7 +154,7 @@
                     <i class="fa-solid fa-images"></i>
                     <h3>Gallery In Progress</h3>
                     <p>We are curating our latest shoots. Contact us to see sample sets tailored to your session type.</p>
-                    <a href="#contact" class="btn btn-primary btn-gold" data-content="gallery.ctaLabel">Request Samples</a>
+                    <a href="#contact" class="btn btn-primary btn-gold">Request Samples</a>
                 </div>
             </div>
         </div>
@@ -128,7 +164,7 @@
         <div class="section-container">
             <div class="section-header text-center">
                 <span class="section-subtitle section-subtitle-gold">Book a Session</span>
-                <h2 class="section-title" data-content-html="contact.title">Let's Capture <span class="text-gold">Your Story</span></h2>
+                <h2 class="section-title">Let's Capture <span class="text-gold">Your Story</span></h2>
                 <div class="gradient-line gradient-line-gold"></div>
             </div>
 
@@ -136,7 +172,7 @@
                 <div class="contact-info-panel contact-info-legacy">
                     <div class="info-glow-overlay info-glow-gold"></div>
                     <h3>Session Inquiries</h3>
-                    <p data-content="contact.description">Tell us your date, location, and vision. We'll reply with availability and package options within 24 hours.</p>
+                    <p>Tell us your date, location, and vision. We'll reply with availability and package options within 24 hours.</p>
 
                     <div class="info-links">
                         <a href="https://wa.me/66123456789" target="_blank" class="info-link-item">
@@ -199,7 +235,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-gold btn-block" id="form-submit-btn">
-                            <span data-content="contact.buttonLabel">Send Session Request</span> <i class="fa-solid fa-paper-plane"></i>
+                            Send Session Request <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
@@ -250,8 +286,6 @@
         </div>
     </footer>
 
-    <script src="content-template.js"></script>
-    <script src="js/site-content.js"></script>
     <script src="js/site.js"></script>
     <script src="main.js"></script>
 </body>
