@@ -345,24 +345,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyEstimateBtn = document.getElementById('btn-apply-estimate');
 
     // Estimator Variables
+    const config = window.SITE_CONFIG || {};
+    const estimatorConfig = config.estimator || {};
+    const currencyConfig = config.currency || {};
     let selectedServices = {};
 
-    const serviceDetails = {
-        graphic: { name: 'Graphic Design', basePrice: 1500, baseTimeline: 3, unit: 'Asset(s)' },
-        photo: { name: 'Photo Editing', basePrice: 1200, baseTimeline: 2, unit: 'Photo(s)' },
-        video: { name: 'Video Editing', basePrice: 2500, baseTimeline: 4, unit: 'Minute(s)' },
-        branding: { name: 'Branding Kit', basePrice: 3500, baseTimeline: 6, unit: 'Asset(s)' },
-        web: { name: 'Web Development', basePrice: 6000, baseTimeline: 10, unit: 'Page(s)' },
-        portrait: { name: 'Portrait Session', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        event: { name: 'Event / Wedding', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        commercial: { name: 'Commercial / Product', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        editing: { name: 'Photo Editing Only', basePrice: 0, baseTimeline: 0, unit: 'Photo(s)' },
-        other: { name: 'Photography Inquiry', basePrice: 0, baseTimeline: 0, unit: 'Session(s)' },
-        multiple: { name: 'Multiple Services', basePrice: 0, baseTimeline: 0, unit: 'Item(s)' }
+    const serviceDetails = estimatorConfig.services || {};
+
+    const applyEstimatorConfigToUi = () => {
+        const buttons = document.querySelectorAll('.service-select-btn');
+        buttons.forEach(btn => {
+            const key = btn.getAttribute('data-service');
+            const detail = serviceDetails[key];
+            if (!detail) return;
+
+            const label = btn.querySelector('span');
+            if (label) {
+                label.textContent = detail.name;
+            }
+
+            if (detail.basePrice !== undefined) {
+                btn.setAttribute('data-base', detail.basePrice);
+            }
+        });
     };
 
+    applyEstimatorConfigToUi();
+
     const formatCurrency = (amount) => {
-        return '฿' + amount.toLocaleString('en-US');
+        const symbol = currencyConfig.symbol || '$';
+        return `${symbol}${amount.toLocaleString(currencyConfig.locale || 'en-US')}`;
     };
 
     const updateSliderLabels = () => {
@@ -373,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         qtyValue.innerText = `${qtySlider.value}x ${unit}`;
 
-        const speeds = [
+        const speeds = estimatorConfig.speedOptions || [
             { text: 'Standard Delivery', multiplier: 1.0 },
             { text: 'Express Delivery (+35%)', multiplier: 1.35 },
             { text: 'Super Express (+75%)', multiplier: 1.75 }
@@ -389,9 +401,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const keys = Object.keys(selectedServices);
         
         if (keys.length === 0) {
-            costText.innerText = '฿0';
+            costText.innerText = `${currencyConfig.symbol || '$'}0`;
             timelineText.innerText = '-- Days';
-            selectedList.innerHTML = '<p class="empty-list-msg">No services selected yet. Click on services to calculate cost!</p>';
+            selectedList.innerHTML = `<p class="empty-list-msg">${estimatorConfig.emptyMessage || 'No services selected yet. Click on services to calculate cost!'}</p>`;
             applyEstimateBtn.disabled = true;
             return;
         }
@@ -507,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const finalTime = timelineText.innerText;
         const qty = qtySlider.value;
         const unit = serviceDetails[keys[0]].unit;
-        const speeds = ['Standard Delivery', 'Express Delivery (+35%)', 'Super Express (+75%)'];
+        const speeds = (estimatorConfig.speedOptions || []).map(option => option.text);
         const currentSpeedText = speeds[parseInt(speedSlider.value, 10) - 1];
 
         if (keys.length === 1) {
@@ -578,9 +590,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const finalTime = timelineText.innerText;
             const qty = qtySlider.value;
             const unit = serviceDetails[keys[0]].unit;
-            const speeds = ['Standard Delivery', 'Express Delivery (+35%)', 'Super Express (+75%)'];
+            const speeds = (estimatorConfig.speedOptions || []).map(option => option.text);
             const currentSpeedText = speeds[parseInt(speedSlider.value, 10) - 1];
-            const message = `Hello KL Studios team!\n\nI have calculated a project estimate using your interactive calculator. Here are the details of my request:\n- Selected Services: ${serviceNames}\n- Required Quantity: ${qty}x ${unit}\n- Preferred Speed: ${currentSpeedText}\n\nInteractive Ballpark Calculation: ${finalCost} within ${finalTime}.\n\nLooking forward to discussing and finalized the proposal. Let's make it awesome!`;
+            const message = `${estimatorConfig.contactGreeting || 'Hello KL Studios team!'}\n\nI have calculated a project estimate using your interactive calculator. Here are the details of my request:\n- Selected Services: ${serviceNames}\n- Required Quantity: ${qty}x ${unit}\n- Preferred Speed: ${currentSpeedText}\n\nInteractive Ballpark Calculation: ${finalCost} within ${finalTime}.\n\nLooking forward to discussing and finalized the proposal. Let's make it awesome!`;
 
             sessionStorage.setItem('kl_estimate', JSON.stringify({
                 keys,

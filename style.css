@@ -348,14 +348,11 @@ a {
 
 .header-logo {
     height: 3.25rem;
-    width: auto;
-    max-width: 11rem;
-    object-fit: contain;
-    object-position: left center;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    transition: var(--transition-smooth);
+        width: 3.25rem;
+        object-fit: cover;
+        object-position: center;
+        border: none;
+        border-radius: 9999px;
     display: block;
 }
 
@@ -558,13 +555,7 @@ a {
     max-width: 20rem;
     object-fit: contain;
     border: none;
-    border-radius: 0;
-}
-
-/* Animations */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+        border-radius: 9999px;
 }
 
 @keyframes rotate {
@@ -1800,14 +1791,11 @@ a {
 
 .footer-logo {
     height: 4.5rem;
-    width: auto;
-    max-width: 12.5rem;
-    object-fit: contain;
-    object-position: left center;
-    border: none;
-    border-radius: 0;
-}
-
+        width: 4.5rem;
+        object-fit: cover;
+        object-position: center;
+        border: none;
+        border-radius: 9999px;
 .footer-brand-desc {
     font-size: 0.9rem;
     margin-top: 1.25rem;
