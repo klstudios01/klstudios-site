@@ -185,19 +185,24 @@ a {
     align-items: center;
     text-align: center;
     padding: 2rem 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
     transition: var(--transition-smooth);
     color: var(--text-primary);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
 }
 
 .home-link-card i {
-    font-size: 2rem;
+    font-size: 1.85rem;
     margin-bottom: 1rem;
-    background: var(--grad-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent-purple);
 }
 
 .home-link-card h3 {
@@ -436,12 +441,13 @@ a {
    -------------------------------------------------------------------------- */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 80px;
     overflow: hidden;
+    background: radial-gradient(circle at top left, rgba(0, 229, 255, 0.14), transparent 18%), radial-gradient(circle at bottom right, rgba(186, 104, 200, 0.12), transparent 16%), linear-gradient(180deg, #06070f 0%, #080a12 100%);
 }
 
 #hero-particles {
@@ -480,12 +486,11 @@ a {
 }
 
 .hero-container {
-    width: 90%;
-    max-width: 1200px;
+    width: min(92%, 1200px);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(320px, 1.1fr) minmax(320px, 0.95fr);
     align-items: center;
-    gap: 60px;
+    gap: 3.5rem;
     position: relative;
     z-index: 3;
 }
@@ -494,59 +499,70 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
+    max-width: 42rem;
 }
 
 .hero-title {
-    font-size: 3.75rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    font-weight: 800;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.02;
+    margin-bottom: 0;
+    font-weight: 900;
+    letter-spacing: -0.05em;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    max-width: 520px;
+    margin-bottom: 0;
+    max-width: 42rem;
 }
 
 .hero-actions {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
 }
 
 .hero-visual-card {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 460px;
+    padding: 1.2rem;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
 }
 
 .logo-glow-wrapper {
     position: relative;
     width: 100%;
     max-width: 22rem;
-    padding: 1.25rem;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.5rem;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     animation: float 6s ease-in-out infinite;
     box-shadow:
-        0 0 50px rgba(212, 175, 55, 0.08),
-        0 0 80px rgba(192, 192, 192, 0.04);
+        0 28px 90px rgba(0, 0, 0, 0.24),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .logo-glow-wrapper::before {
     content: '';
     position: absolute;
     inset: -1px;
-    border-radius: 17px;
+    border-radius: 27px;
     background: linear-gradient(135deg, hsla(210, 15%, 80%, 0.2), hsla(43, 85%, 55%, 0.25));
     z-index: -1;
-    opacity: 0.5;
-    filter: blur(12px);
+    opacity: 0.55;
+    filter: blur(14px);
 }
 
 .hero-logo-img {
@@ -2329,42 +2345,76 @@ body.is-loaded .site-main {
 .hero-trust-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem 1.75rem;
-    margin-top: 2rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    gap: 1rem;
+    margin-top: 1.75rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.hero-trust-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(10px);
+}
+
+.hero-trust-row span:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
 }
 
 .hero-trust-row i {
     color: var(--accent-purple);
-    margin-right: 6px;
+    font-size: 0.95rem;
 }
 
 .stats-bar {
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    background: hsla(0, 0%, 6%, 0.5);
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-radius: 28px;
+    margin: 0 0 4rem;
+    padding: 0 1rem;
 }
 
 .stats-bar-inner {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 2.5rem 0;
     text-align: center;
+}
+
+.stat-block {
+    background: rgba(12, 15, 26, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 1.5rem 1.2rem;
+    transition: var(--transition-smooth);
+}
+
+.stat-block:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
 }
 
 .stat-number {
     display: block;
     font-family: var(--font-heading);
-    font-size: 2.25rem;
+    font-size: 2.6rem;
     font-weight: 800;
-    background: var(--grad-primary);
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    line-height: 1.1;
+    line-height: 1.05;
 }
 
 .stat-desc {
