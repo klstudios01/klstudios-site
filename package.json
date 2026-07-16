@@ -1,0 +1,10 @@
+{
+  "name": "klstudios-site",
+  "version": "1.0.0",
+  "description": "KL Studios (Kalaphol & Legacy Studios) agency workspace",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python -m uvicorn main:app --reload --port 8000",
+    "dev": "npx concurrently -n \"frontend,backend\" -c \"cyan,green\" \"npm run dev:frontend\" \"npm run dev:backend\""
+  }
+}
